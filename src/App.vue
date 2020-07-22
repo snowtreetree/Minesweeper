@@ -1,28 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <h1>{{state.count}} * 2={{double}}</h1>
+  <button @click="add">累加</button>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {reactive,computed} from 'vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  // beforeCreate 之前调用
+  setup(){
+    console.log(9999)
+    const state = reactive({
+      count:1
+    })
+    function add(){
+      state.count++
+    }
+    const double = computed(()=>state.count*2)
+    return {state,add,double}
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
