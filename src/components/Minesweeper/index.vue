@@ -68,7 +68,6 @@ export default {
         if(state.needReset) return
         item.status="clicked"
         grades.value = list.value.flat().filter(item => item.status === 'clicked').length
-        console.log('list.value.length',list.value.flat().filter(item => item.status === 'clicked'))
         if(item.has){
             state.needReset = true
         }
@@ -76,6 +75,7 @@ export default {
     const reset = () => {
         state.needReset = false
         baseCount.value+=1
+        grades.value = 0
     }
     return {
       state,
