@@ -1,12 +1,14 @@
 <template>
-  <h1>{{state.count}} * 2={{double}}</h1>
-  <button @click="add">累加</button>
+  <Minesweeper/>
 </template>
 <script>
 import {reactive,computed} from 'vue'
-
+import Minesweeper from './components/Minesweeper'
 
 export default {
+  components: {
+    Minesweeper
+  },
   // beforeCreate 之前调用
   setup(){
     console.log(9999)
